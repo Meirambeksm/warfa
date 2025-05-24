@@ -978,6 +978,18 @@ button:hover {
   gap: 40px;
 }
 
+.portfolio__slides-wrapper {
+  overflow: hidden;
+  width: 90%;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.portfolio__slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
 .portfolio__carousel {
   display: flex;
   align-items: center;
@@ -993,7 +1005,7 @@ button:hover {
 .portfolio__content {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  min-width: 100%;
   padding: 16px 12px;
   background-color: #fff;
   border-radius: 20px;
@@ -1159,12 +1171,18 @@ input:focus {
   outline: none;
 }
 
+.form__upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 23%;
+}
+
 .form__upload-button {
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
-  width: 23%;
   height: 48px;
   background-color: #fff;
   border: #d48a36 solid 1px;
@@ -1200,6 +1218,10 @@ input:focus {
 
   .form__input,
   .form__upload-button {
+    width: 100%;
+  }
+
+  .form__upload-wrapper {
     width: 100%;
   }
 }
@@ -1282,7 +1304,8 @@ input:focus {
 
 .footer .container {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 200px;
   align-items: start;
 }
 
@@ -1304,8 +1327,9 @@ input:focus {
   line-height: 23px;
 }
 
-.footer__button {
-  padding: 18px 33px;
+.footer__map {
+  width: 544px;
+  height: 244px;
 }
 
 .phone,
@@ -1335,7 +1359,7 @@ input:focus {
 
 @media (max-width: 612px) {
   .footer {
-    height: 479px;
+    height: 550px;
   }
 
   .footer .container {
@@ -1359,33 +1383,28 @@ input:focus {
   }
 
   .phone {
-    top: 225px;
+    top: 70px;
     right: 31px;
   }
 
   .whatsapp {
-    bottom: 87px;
+    top: 170px;
     right: 36px;
+  }
+
+  .footer__map {
+    width: 100%;
+    height: 220px;
   }
 }
 
 @media (max-width: 431px) {
   .phone {
-    width: 70px;
-    height: 70px;
-    top: auto;
-    bottom: 110px;
     right: 10px;
   }
 
   .whatsapp {
-    bottom: 20px;
     right: 10px;
-  }
-
-  .footer__button {
-    font-size: 14px;
-    font-weight: 400;
   }
 }
 
@@ -1398,7 +1417,7 @@ input:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -1407,11 +1426,11 @@ input:focus {
 .modal {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   align-items: center;
   justify-content: space-between;
   background: #fff;
   width: 464px;
-  height: 469px;
   padding: 40px 30px;
   box-shadow: 0px 43px 48px rgba(12, 33, 116, 0.07);
   border-radius: 34px;
@@ -1448,6 +1467,10 @@ input:focus {
   color: #7b7b7b;
 }
 
+.file-input {
+  display: none;
+}
+
 .modal__form-upload-button {
   display: flex;
   gap: 10px;
@@ -1460,6 +1483,7 @@ input:focus {
   color: #d48a36;
   font-size: 16px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .modal__form-upload-button:hover {
@@ -1469,9 +1493,37 @@ input:focus {
   transition: all 0.3s ease-in-out;
 }
 
+#fileNameDisplay,
+#formFileNameDisplay {
+  display: none;
+  width: fit-content;
+  font-weight: 600;
+  padding: 15px;
+  background-color: transparent;
+  border: #e5963a solid 2px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
 .modal__form-button {
   width: 100%;
   height: 68px;
+}
+
+.upload-file {
+  position: relative;
+  width: fit-content;
+}
+
+#clearFileButton,
+#formClearFileButton {
+  display: none;
+  position: absolute;
+  color: #e5963a;
+  top: -14px;
+  right: -4px;
+  font-size: 26px;
+  background-color: transparent;
 }
 
 @media (max-width: 612px) {
@@ -1528,6 +1580,25 @@ input:focus {
   align-items: center;
   color: white;
   font-size: 24px;
+  position: relative;
+}
+
+.slide__info {
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+  background-color: #000;
+  opacity: 0.5;
+  padding: 15px;
+}
+
+.slide__info-title {
+  font-size: 18px;
+}
+
+.slide__info-text {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .slide img {
@@ -1632,6 +1703,21 @@ input:focus {
   .thumbnail {
     width: 70px;
     height: 45px;
+  }
+
+  .slide__info {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+  }
+
+  .slide__info-title {
+    font-size: 16px;
+  }
+
+  .slide__info-text {
+    font-size: 12px;
+    font-weight: 400;
   }
 }
 

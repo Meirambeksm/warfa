@@ -15,72 +15,36 @@ document.querySelectorAll(".header__menu-link").forEach((link) => {
 });
 
 // portfolio carousel
-const slides = [
-  {
-    image: "./images/portfolio-1.png",
-    title: "— ТОО «АгроТрейд»",
-    text: "“Построили ангар 1200 м² в Шымкенте — строго по сроку, без переплат. Всё как обещали”",
-    area: "1300 кв м",
-    type: "Складское помещение",
-  },
-  {
-    image: "./images/portfolio-2.png",
-    title: "— ТОО «KazAgro»",
-    text: "“Быстро, качественно и по договору. Отличная команда”",
-    area: "950 кв м",
-    type: "Производственный цех",
-  },
-  {
-    image: "./images/portfolio-3.png",
-    title: "— ИП «Altyn Dan»",
-    text: "“Заказали склад в Астане. Всё было на высшем уровне. Спасибо!”",
-    area: "1100 кв м",
-    type: "Складское помещение",
-  },
-];
-
-let currentIndex = 0;
-const imageEl = document.querySelector(".porfolio__content-portfolio-image");
-const titleEl = document.querySelector(".portfolio__content-info-title");
-const textEl = document.querySelector(".portfolio__content-info-text");
-const areaEl = document.querySelectorAll(".portfolio__content-info-type p")[0];
-const typeEl = document.querySelectorAll(".portfolio__content-info-type p")[1];
+const slides = document.querySelectorAll(".portfolio__content");
+const slideTrack = document.querySelector(".portfolio__slides");
 const dots = document.querySelectorAll(".portfolio__carousel-add-button");
-const contentBox = document.querySelector(".portfolio__content");
+let currentIndex = 0;
 
-function updateSlide(index) {
-  const slide = slides[index];
-  imageEl.src = slide.image;
-  titleEl.textContent = slide.title;
-  textEl.textContent = slide.text;
-  areaEl.textContent = slide.area;
-  typeEl.textContent = slide.type;
+function updateSliderPosition() {
+  slideTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
 
   dots.forEach((dot) => dot.classList.remove("active"));
-  dots[index].classList.add("active");
-
-  contentBox.classList.add("animate");
-  setTimeout(() => contentBox.classList.remove("animate"), 100);
+  dots[currentIndex].classList.add("active");
 }
 
 document.getElementById("prevBtn").addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlide(currentIndex);
+  updateSliderPosition();
 });
 
 document.getElementById("nextBtn").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % slides.length;
-  updateSlide(currentIndex);
+  updateSliderPosition();
 });
 
 dots.forEach((dot, index) => {
   dot.addEventListener("click", () => {
     currentIndex = index;
-    updateSlide(currentIndex);
+    updateSliderPosition();
   });
 });
 
-updateSlide(currentIndex);
+updateSliderPosition();
 
 // FAQ accordion
 const faqItems = document.querySelectorAll(".faq__accordion-item");
@@ -164,6 +128,59 @@ thumbnails.forEach((thumb) => {
   };
 });
 
+// File upload:
+const fileInput = document.getElementById("fileInput");
+const formFileInput = document.getElementById("formFileInput");
+const fileNameDisplay = document.getElementById("fileNameDisplay");
+const formFileNameDisplay = document.getElementById("formFileNameDisplay");
+const clearButton = document.getElementById("clearFileButton");
+const formClearButton = document.getElementById("formClearFileButton");
+
+fileInput.addEventListener("change", function () {
+  if (fileInput.files.length > 0) {
+    const fileNames = Array.from(fileInput.files)
+      .map((file) => file.name)
+      .join(", ");
+
+    fileNameDisplay.textContent = fileNames;
+    fileNameDisplay.style.display = "flex";
+    clearButton.style.display = "inline-block";
+  } else {
+    fileNameDisplay.style.display = "none";
+    clearButton.style.display = "none";
+  }
+});
+
+clearButton.addEventListener("click", function () {
+  fileInput.value = "";
+  fileNameDisplay.textContent = "";
+  fileNameDisplay.style.display = "none";
+  clearButton.style.display = "none";
+});
+
+formFileInput.addEventListener("change", function () {
+  if (formFileInput.files.length > 0) {
+    const fileNames = Array.from(formFileInput.files)
+      .map((file) => file.name)
+      .join(", ");
+
+    formFileNameDisplay.textContent = fileNames;
+    formFileNameDisplay.style.display = "flex";
+    formClearButton.style.display = "inline-block";
+  } else {
+    formFileNameDisplay.style.display = "none";
+    formClearButton.style.display = "none";
+  }
+});
+
+formClearButton.addEventListener("click", function () {
+  formFileInput.value = "";
+  formFileNameDisplay.textContent = "";
+  formFileNameDisplay.style.display = "none";
+  formClearButton.style.display = "none";
+});
+
+// Mask
 Inputmask("+7 999 999 99 99").mask("#phoneInput");
 
 /*

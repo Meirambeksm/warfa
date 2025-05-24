@@ -233,7 +233,7 @@
               производителя
             </h1>
             <div class="why-choose-us__order-buttons">
-              <button class="why-choose-us__button-secondary">
+              <button class="why-choose-us__button-secondary modal-btn">
                 СКАЧАТЬ КАТАЛОГ
                 <div class="why-choose-us__button-icon">
                   <img
@@ -544,32 +544,104 @@
             <img src="./images/arrow-left-lg.svg" alt="arrow left icon" />
           </button>
 
-          <div class="portfolio__content">
-            <div class="porfolio__content-image">
-              <img
-                src="./images/portfolio-1.png"
-                alt="portfolio image"
-                class="porfolio__content-portfolio-image"
-              />
-            </div>
-
-            <div class="portfolio__content-info">
-              <h3 class="portfolio__content-info-title">— ТОО «АгроТрейд»</h3>
-
-              <p class="portfolio__content-info-text">
-                “Построили ангар 1200 м² в Шымкенте — строго по сроку, без
-                переплат. Всё как обещали”
-              </p>
-
-              <div class="portfolio__content-info-additional">
-                <div class="portfolio__content-info-type">
-                  <span>Площадь:</span>
-                  <p>1300 кв м</p>
+          <div class="portfolio__slides-wrapper">
+            <div class="portfolio__slides">
+              <div class="portfolio__content">
+                <div class="porfolio__content-image">
+                  <img
+                    src="./images/portfolio-1.png"
+                    alt="portfolio image"
+                    class="porfolio__content-portfolio-image"
+                  />
                 </div>
 
-                <div class="portfolio__content-info-type">
-                  <span>Тип здания:</span>
-                  <p>Складское помещение</p>
+                <div class="portfolio__content-info">
+                  <h3 class="portfolio__content-info-title">
+                    — ТОО «АгроТрейд»
+                  </h3>
+
+                  <p class="portfolio__content-info-text">
+                    “Построили ангар 1200 м² в Шымкенте — строго по сроку, без
+                    переплат. Всё как обещали”
+                  </p>
+
+                  <div class="portfolio__content-info-additional">
+                    <div class="portfolio__content-info-type">
+                      <span>Площадь:</span>
+                      <p>1300 кв м</p>
+                    </div>
+
+                    <div class="portfolio__content-info-type">
+                      <span>Тип здания:</span>
+                      <p>Складское помещение</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio__content">
+                <div class="porfolio__content-image">
+                  <img
+                    src="./images/portfolio-1.png"
+                    alt="portfolio image"
+                    class="porfolio__content-portfolio-image"
+                  />
+                </div>
+
+                <div class="portfolio__content-info">
+                  <h3 class="portfolio__content-info-title">
+                    — ТОО «АгроТрейд»
+                  </h3>
+
+                  <p class="portfolio__content-info-text">
+                    “Построили ангар 1200 м² в Шымкенте — строго по сроку, без
+                    переплат. Всё как обещали”
+                  </p>
+
+                  <div class="portfolio__content-info-additional">
+                    <div class="portfolio__content-info-type">
+                      <span>Площадь:</span>
+                      <p>1300 кв м</p>
+                    </div>
+
+                    <div class="portfolio__content-info-type">
+                      <span>Тип здания:</span>
+                      <p>Складское помещение</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio__content">
+                <div class="porfolio__content-image">
+                  <img
+                    src="./images/portfolio-1.png"
+                    alt="portfolio image"
+                    class="porfolio__content-portfolio-image"
+                  />
+                </div>
+
+                <div class="portfolio__content-info">
+                  <h3 class="portfolio__content-info-title">
+                    — ТОО «АгроТрейд»
+                  </h3>
+
+                  <p class="portfolio__content-info-text">
+                    “Построили ангар 1200 м² в Шымкенте — строго по сроку, без
+                    переплат. Всё как обещали”
+                  </p>
+
+                  <div class="portfolio__content-info-additional">
+                    <div class="portfolio__content-info-type">
+                      <span>Площадь:</span>
+                      <p>1300 кв м</p>
+                    </div>
+
+                    <div class="portfolio__content-info-type">
+                      <span>Тип здания:</span>
+                      <p>Складское помещение</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -625,14 +697,29 @@
             class="form__input"
           />
 
-          <button class="form__upload-button" type="button">
-            <img
-              src="./images/upload-icon.svg"
-              alt="upload icon"
-              class="form__upload-button-image"
+          <div class="form__upload-wrapper">
+            <input
+              type="file"
+              id="fileInput"
+              name="file"
+              class="file-input"
+              hidden
+              multiple
             />
-            Прикрепить план
-          </button>
+            <label for="fileInput" class="modal__form-upload-button">
+              <img
+                src="./images/upload-icon.svg"
+                alt="upload icon"
+                class="modal__form-upload-button-image"
+              />
+              Прикрепить план
+            </label>
+
+            <div class="upload-file">
+              <p id="fileNameDisplay"></p>
+              <button type="button" id="clearFileButton">&times;</button>
+            </div>
+          </div>
         </form>
 
         <button class="form__button">
@@ -826,14 +913,27 @@
             class="modal__form-input"
           />
 
-          <button class="modal__form-upload-button">
+          <input
+            type="file"
+            id="formFileInput"
+            name="file"
+            class="file-input"
+            hidden
+            multiple
+          />
+          <label for="formFileInput" class="modal__form-upload-button">
             <img
               src="./images/upload-icon.svg"
               alt="upload icon"
               class="modal__form-upload-button-image"
             />
             Прикрепить план
-          </button>
+          </label>
+
+          <div class="upload-file">
+            <p id="formFileNameDisplay"></p>
+            <button type="button" id="formClearFileButton">&times;</button>
+          </div>
         </form>
 
         <button class="modal__form-button">
@@ -854,27 +954,59 @@
           <div class="slides" id="slides">
             <div class="slide">
               <img src="./images/gallery-1.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-2.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-3.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-4.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-1.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-2.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-3.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
             <div class="slide">
               <img src="./images/gallery-4.png" alt="plant image" />
+              <div class="slide__info">
+                <h3 class="slide__info-title">Название объекта</h3>
+                <p class="slide__info-text">Текст и инфо об объекте</p>
+              </div>
             </div>
           </div>
 
@@ -916,9 +1048,7 @@
       <div class="container">
         <div class="footer__contacts">
           <img src="./images/footer-logo.svg" alt="logo" />
-        </div>
 
-        <div class="footer__contacts">
           <div class="footer__contacts-info">
             <img
               src="./images/footer-location-icon.svg"
@@ -929,10 +1059,7 @@
               г. Алматы, улица 24 июня, д. 27 БЦ Aizex 4 этаж 407 кабинет
             </p>
           </div>
-          <button class="footer__button address-btn">Как проехать</button>
-        </div>
 
-        <div class="footer__contacts">
           <div class="footer__contacts-info">
             <img
               src="./images/phone-icon.svg"
@@ -941,10 +1068,7 @@
             />
             <p class="footer__text">+ 7 707 155 37 07</p>
           </div>
-          <button class="footer__button">Написать в Whatsapp</button>
-        </div>
 
-        <div class="footer__contacts">
           <div class="footer__contacts-info">
             <img
               src="./images/footer-email-icon.svg"
@@ -955,6 +1079,14 @@
           </div>
         </div>
 
+        <div class="footer__map">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A5cd52bae5b1ef2a3baf53b0a92bc8462e3f8e0834b09978c60f8dd795ae10ce5&amp;source=constructor"
+            width="100%"
+            height="100%"
+            frameborder="0"
+          ></iframe>
+        </div>
         <button class="phone">
           <img
             src="./images/footer-phone-icon.svg"
